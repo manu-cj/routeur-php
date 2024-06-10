@@ -3,6 +3,7 @@ if (isset($_POST['submitLogin'])) {
     $mail = htmlentities($_POST['mail']);
     $password = htmlentities($_POST['password']);
     $alert = [];
+    $email = strip_tags($_POST['mail']);
 
     if (empty($password) or empty($mail)) {
         $alert[] = '<h4 style="background-color:red; color:white; text-align:center;">One or more fields are missing !</h4>';
@@ -15,6 +16,7 @@ if (isset($_POST['submitLogin'])) {
         $_SESSION['alert'] = $alert;
         header("location: ?c=login");
     } else {
-        $_SESSION['alert'] = "";
+        $_SESSION['alert'] = '[<h4 style="background-color:green; color:white; text-align:center;">Success baby!</h4>]';
+        header("location: ?c=login");
     }
 }
