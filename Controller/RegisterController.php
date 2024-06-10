@@ -4,7 +4,7 @@ if (isset($_POST['submitRegister'])) {
     $mail = htmlentities($_POST['register-mail']);
     $password = htmlentities($_POST['register-password']);
     $repeatPassword = htmlentities($_POST['repeat-password']);
-
+     
     echo $username . $mail . $password . $repeatPassword;
     $alert = [];
 
@@ -25,7 +25,8 @@ if (isset($_POST['submitRegister'])) {
         $_SESSION['alert'] = $alert;
         header("location: ?c=login");
     } else {
-        $_SESSION['alert'] = "";
+        $_SESSION['alert'] = '<h4 style="background-color:green; color:white; text-align:center;">Success baby!</h4>';
+        header("location: ?c=login");
     }
 }
 
